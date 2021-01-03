@@ -20,11 +20,17 @@ function randChoice(arr){
 
 for(let i=1; i<=20; i++){
   let gender = randChoice(genders)
+  let firstName = gender === 'M' ? randChoice(maleNames) : randChoice(femaleNames);
+  let lastName = randChoice(lastNames);
+  let email = firstName + '.' + lastName + '@gmail.com';
+  let phone = getRandomInt(100000000, 999999999)
   let person = {
     gender: gender === 'M' ? 'male' : 'female',
-    firstName: gender === 'M' ? randChoice(maleNames) : randChoice(femaleNames),
-    lastName: randChoice(lastNames),
+    firstName: firstName,
+    lastName: lastName,
     age: getRandomInt(1, 100),
+    email: email.toLowerCase(),
+    phone: phone,
   };
   peple.push(person)
 }
